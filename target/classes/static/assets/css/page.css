@@ -1,0 +1,114 @@
+.main-panel{
+    margin-left: 18%;
+}
+
+.margin-top-50{
+    margin-top: 100px;
+}
+
+.nav-profile-image{
+    font-size:50px;
+    /* color: #da8cff; */
+}
+
+.nav-profile-img mdi-account-circle{
+    font-size: 3.25rem;
+    color: aqua;
+}
+
+.navbar .navbar-menu-wrapper .navbar-nav .nav-item .nav-link .nav-profile-img i {
+    font-size: 2.25rem;
+    color: #3e4b5b;
+}
+
+.nav-profile-img{
+    margin-top: -20px;
+}
+
+/* Non valide */
+.padding{
+    margin-left: 10%;
+}
+
+.color-purple{
+    color: #b66dff;
+    text-shadow: black 1px 1px 1px;
+}
+
+.margin-end{
+    margin-left: 5%;
+}
+
+/* Style pour le pop-up */
+.popup {
+    width: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Fond flouté */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+    display: none;
+}
+
+/* Style pour le formulaire (ajustez selon vos besoins) */
+.popup form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Style pour le bouton Ajouter */
+.popup button {
+    display: block;
+    margin-top: 10px;
+}
+
+.text-danger {
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    display: none;
+    background-color: #ff0000;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.text-danger:hover .tooltip {
+    display: block;
+}
+
+
+/* .sidebar .nav .nav-item.active */
+/* .sidebar .nav .nav-item .nav-link.active {
+    background: #ffffff;
+}
+.sidebar .nav .nav-item .nav-link.active {
+      color: #b66dff;
+      font-family: "ubuntu-medium", sans-serif; 
+    }
+.sidebar .nav .nav-item .nav-link.active i{
+      color: #b66dff; 
+} */
+
+
+
