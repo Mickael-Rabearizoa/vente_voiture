@@ -35,4 +35,8 @@ public class ModeleService {
     public void deleteModele(Integer IdModele) {
         modeleRepository.deleteById(IdModele);
     }
+
+    public Optional<List<Modele>> getModelByMarque(int id_marque) {
+        return modeleRepository.getModelByMarque(id_marque);
+    }
 }

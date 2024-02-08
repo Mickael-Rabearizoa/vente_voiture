@@ -70,5 +70,17 @@ public class UtilisateurController {
     public int getnbutilisateur() {
         return utilisateurService.getnbutilisateur();
     }
+
+    @GetMapping("findByLogin")
+    @PreAuthorize("hasRole('USER') || hasRole('ADMIN')")
+    public ResponseEntity<Map<String, Object>> findByLogin(@RequestParam String login){
+        Map<String, Object> response = Util.getDefaultResponse();
+        response.put("response", utilisateurService.findByLogin(login));
+        System.out.println(login);
+        return new ResponseEntity<Map<String, Object>>(
+                response,
+                HttpStatusCode.valueOf(200)
+        );
+    }
 }
 
