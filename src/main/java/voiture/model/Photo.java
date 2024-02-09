@@ -22,9 +22,9 @@ public class Photo {
     @Column(name = "Id_Annonceutilisateur")
     public Integer Id_Annonceutilisateur;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "id_annonceutilisateur", referencedColumnName = "id_annonceutilisateur" , insertable = false, updatable = false , nullable = false)
-    private V_AnnonceUtilisateur V_AnnonceUtilisateur;
+    private V_AnnonceUtilisateur V_AnnonceUtilisateur;*/
 
     public Integer getId_Annonceutilisateur() {
         return Id_Annonceutilisateur;
