@@ -3,6 +3,7 @@ package voiture.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import voiture.service.PhotoService;
 
 import java.sql.Date;
 import java.util.List;
@@ -61,8 +62,8 @@ public class V_AnnonceUtilisateur {
     @Column(name="marque")
     public String marque;
 
-    /* @OneToMany(mappedBy = "V_AnnonceUtilisateur", cascade = CascadeType.ALL)
-    private List<Photo> photoList; */
+    @Transient
+    private List<Photo> photoList;
 
     public String getMarque() {
         return marque;

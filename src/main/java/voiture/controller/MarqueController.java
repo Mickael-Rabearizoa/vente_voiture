@@ -32,7 +32,7 @@ public class MarqueController {
     }
 
     @GetMapping()
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') || hasRole('USER')")
     public ResponseEntity<Map<String, Object>> getMarque() {
         Map<String,Object> response = Util.getDefaultResponse();
         response.put("data",marqueService.getAllMarque());

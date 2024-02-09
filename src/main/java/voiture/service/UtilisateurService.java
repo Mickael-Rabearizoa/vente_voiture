@@ -35,4 +35,8 @@ public class UtilisateurService {
     return utilisateurRepository.findById(idUtilisateur);
   }
 
+  public Optional<Utilisateur> findByLogin(String login){
+    return  utilisateurRepository.findByLogin(login);
+  }
+
 }
