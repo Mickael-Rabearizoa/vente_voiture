@@ -53,7 +53,7 @@
                                     <div class="row">
                                         <div class="col-lg-5">
                                             <% String image = "image.jpg"; %>
-                                            <% if(v_annonceUtilisateur.getPhotoList() != null){
+                                            <% if(v_annonceUtilisateur.getPhotoList().isEmpty() == false){
                                                 image = v_annonceUtilisateur.getPhotoList().get(0).getPhoto();
                                             } %>
                                             <img src=<%=image %> alt="Sans image" width="400px" height="250px"></img>
