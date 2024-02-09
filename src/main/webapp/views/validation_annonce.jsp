@@ -101,28 +101,19 @@
                                 <div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 
                                 <div class="slick3 gallery-lb">
+                                    <% if(v_annonceUtilisateur.getPhotoList() != null){ %>
+                                        <% for (Photo photo : v_annonceUtilisateur.getPhotoList()) { %>
+                                            <div class="item-slick3" data-thumb=<%=photo.getPhoto()%>>
+                                                <div class="wrap-pic-w pos-relative">
+                                                    <img src=<%=photo.getPhoto()%> alt="IMG-PRODUCT" width="400px" height="300px">
 
-                                    <% for (Photo photo : v_annonceUtilisateur.getPhotoList()) { %>
-                                        <div class="item-slick3" data-thumb=<%=photo.getPhoto()%>>
-                                            <div class="wrap-pic-w pos-relative">
-                                                <img src=<%=photo.getPhoto()%> alt="IMG-PRODUCT" width="400px" height="300px">
-
-                                                <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href=<%=photo.getPhoto()%>>
-                                                    <i class="mdi mdi-arrow-expand"></i>
-                                                </a>
+                                                    <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href=<%=photo.getPhoto()%>>
+                                                        <i class="mdi mdi-arrow-expand"></i>
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
+                                        <% } %>
                                     <% } %>
-                                    <div class="item-slick3" data-thumb="assets/images/voiture/BMW_noir1.jpg">
-                                        <div class="wrap-pic-w pos-relative">
-                                            <img src="assets/images/voiture/BMW_noir1.jpg" alt="IMG-PRODUCT" width="400px" height="300px">
-
-                                            <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="assets/images/voiture/BMW_noir1.jpg">
-                                                <i class="mdi mdi-arrow-expand"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>

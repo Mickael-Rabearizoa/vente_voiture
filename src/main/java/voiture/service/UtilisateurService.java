@@ -29,7 +29,6 @@ public class UtilisateurService {
     return user;
   }
 
-
   public int getnbutilisateur() { return utilisateurRepository.getNbUtilisateur(); }
 
   public Optional<Utilisateur> getUtilisateurBYid(Integer idUtilisateur) {
