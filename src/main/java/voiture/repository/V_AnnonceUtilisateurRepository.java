@@ -40,6 +40,6 @@ public interface V_AnnonceUtilisateurRepository extends JpaRepository<V_AnnonceU
     V_AnnonceUtilisateur getNbAnnonceValide();
 
     @Query(value = "select * from V_AnnonceUtilisateur where idutilisateur=?1", nativeQuery = true)
-    List<voiture.model.V_AnnonceUtilisateur> getAnnonceUtilisateur(int idutilisateur);
+    List<V_AnnonceUtilisateur> getAnnonceUtilisateur(int idutilisateur);
 
 }
