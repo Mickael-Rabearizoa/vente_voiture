@@ -4,8 +4,11 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
-@Table(name= "photo")
+@Getter
+@Setter
+@Entity(name = "photo")
+@Table(name= "Photo")
+
 public class Photo {
 
     @Id

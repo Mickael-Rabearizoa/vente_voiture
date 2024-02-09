@@ -54,6 +54,9 @@ public class ElementsBackOfficeController {
     @Autowired
     RegionRepository regionRepository;
 
+    @Autowired
+    PhotoRepository photoRepository;
+
 
     @GetMapping("/ajout-model")
     public ModelAndView pageAjoutModel(Model model , HttpSession session){
@@ -385,7 +388,16 @@ public class ElementsBackOfficeController {
             if(session.getAttribute("user") != null){
                 Utilisateur utilisateur = (Utilisateur) session.getAttribute("user");
                 model.addAttribute("pageName" , "Validation");
-                model.addAttribute("listAnnonce" , v_annonceUtilisateurService.getAnnonceAValide());
+                List<V_AnnonceUtilisateur> listAnnonce = v_annonceUtilisateurService.getAnnonceAValide();
+                for (V_AnnonceUtilisateur annonce : listAnnonce) {
+                    List<Photo> listPhoto = photoRepository.findPhotosById_Annonceutilisateur(annonce.getId_Annonceutilisateur());
+                    System.out.println("annonce: "+ annonce.getId_Annonceutilisateur()+ " statut: "+ annonce.getStatus());
+                    for (Photo photo :listPhoto) {
+                        System.out.println("---------------------------Photooooooo");
+                    }
+                    annonce.setPhotoList(listPhoto);
+                }
+                model.addAttribute("listAnnonce" , listAnnonce);
                 ModelAndView modelAndView = new ModelAndView("validation_annonce");
                 return modelAndView;
             } else {
