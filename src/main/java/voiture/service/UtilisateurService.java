@@ -29,11 +29,14 @@ public class UtilisateurService {
     return user;
   }
 
-
   public int getnbutilisateur() { return utilisateurRepository.getNbUtilisateur(); }
 
   public Optional<Utilisateur> getUtilisateurBYid(Integer idUtilisateur) {
     return utilisateurRepository.findById(idUtilisateur);
+  }
+
+  public Optional<Utilisateur> findByLogin(String login){
+    return  utilisateurRepository.findByLogin(login);
   }
 
 }

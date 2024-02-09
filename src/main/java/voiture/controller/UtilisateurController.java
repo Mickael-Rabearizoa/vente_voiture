@@ -13,6 +13,7 @@ import voiture.auth.AuthenticationRequest;
 import voiture.auth.RegisterRequest;
 import voiture.model.Transmission;
 import voiture.model.Utilisateur;
+import voiture.repository.UtilisateurRepository;
 import voiture.service.AuthenticationService;
 import voiture.service.UtilisateurService;
 import voiture.tools.Util;
@@ -25,6 +26,9 @@ public class UtilisateurController {
     private AuthenticationService service;
     @Autowired
     private  final UtilisateurService utilisateurService;
+
+    @Autowired
+    public UtilisateurRepository utilisateurRepository;
 
     public UtilisateurController(UtilisateurService utilisateurService) {
         this.utilisateurService = utilisateurService;
@@ -69,6 +73,18 @@ public class UtilisateurController {
     @PreAuthorize("hasRole('ADMIN')")
     public int getnbutilisateur() {
         return utilisateurService.getnbutilisateur();
+    }
+
+    @GetMapping("findByLogin")
+    @PreAuthorize("hasRole('USER') || hasRole('ADMIN')")
+    public ResponseEntity<Map<String, Object>> findByLogin(@RequestParam String login){
+        Map<String, Object> response = Util.getDefaultResponse();
+        response.put("response", utilisateurRepository.findByLogin(login));
+        System.out.println(login);
+        return new ResponseEntity<Map<String, Object>>(
+                response,
+                HttpStatusCode.valueOf(200)
+        );
     }
 }
 

@@ -75,10 +75,10 @@ INSERT INTO Carburant (carburant) VALUES ('Gasoline');
 INSERT INTO Carburant (carburant) VALUES ('Hybrid');
 
 -- Utilisateur
---INSERT INTO Utilisateur (prenom, nom, datenaissance, login, motdepasse, role, telephone) VALUES
-                                                                                             --('John', 'Doe', '1990-01-15', 'john_doe', 'password123', 'client', '123-456-7890'),
-                                                                                             --('Alice', 'Smith', '1985-05-22', 'alice_smith', 'securepass', 'client', '987-654-3210'),
-                                                                                             --('Admin', 'Adminson', '1980-10-10', 'admin', 'adminpass', 'admin', '555-555-5555');
+INSERT INTO Utilisateur (prenom, nom, datenaissance, login, motdepasse, role, telephone) VALUES
+                                                                                             ('John', 'Doe', '1990-01-15', 'john_doe@gamail.com', 'motdepasse1', 'client', '123-456-7890'),
+                                                                                             ('Alice', 'Smith', '1985-05-22', 'alice_smith@gmail.com', 'motdepasse', 'client', '987-654-3210'),
+                                                                                             ('Admin', 'Adminson', '1980-10-10', 'admin@gmail.com', 'motdepasse', 'client', '555-555-5555');
 
 -- Volant
 INSERT INTO Volant (volant) VALUES ('Leather');

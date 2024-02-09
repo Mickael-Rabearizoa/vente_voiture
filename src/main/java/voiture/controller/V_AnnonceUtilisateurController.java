@@ -5,6 +5,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import voiture.model.Annonceutilisateur;
 import voiture.model.V_AnnonceUtilisateur;
+import voiture.repository.V_AnnonceUtilisateurRepository;
 import voiture.service.V_AnnonceUtilisateurService;
 
 import java.util.List;
@@ -18,6 +19,9 @@ public class V_AnnonceUtilisateurController {
     public V_AnnonceUtilisateurController(V_AnnonceUtilisateurService v_annonceUtilisateurService) {
         this.v_annonceUtilisateurService = v_annonceUtilisateurService;
     }
+
+    @Autowired
+    public V_AnnonceUtilisateurRepository v_annonceUtilisateurRepository;
 
     @GetMapping("/getAnnonceNonValide")
     @PreAuthorize("hasRole('USER')")
@@ -54,7 +58,7 @@ public class V_AnnonceUtilisateurController {
     }
 
     @GetMapping("/getListAnnonceValide")
-    @PreAuthorize("hasRole('USER')")
+    /* @PreAuthorize("hasRole('USER')") */
     public List<V_AnnonceUtilisateur> getListAnnonceValide(){
         return v_annonceUtilisateurService.getListAnnonceValide();
     }
@@ -71,4 +75,5 @@ public class V_AnnonceUtilisateurController {
     public List<V_AnnonceUtilisateur> getAnnonceUtilisateur(@RequestParam int Idutilisateur){
         return v_annonceUtilisateurService.getAnnonceUtilisateur(Idutilisateur);
     }
+
 }

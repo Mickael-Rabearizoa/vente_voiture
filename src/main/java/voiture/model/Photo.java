@@ -1,14 +1,14 @@
 package voiture.model;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "photo")
 @Table(name= "Photo")
+
 public class Photo {
 
     @Id

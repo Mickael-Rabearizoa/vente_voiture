@@ -30,8 +30,11 @@ public class TypevoitureController {
     }
 
     @GetMapping()
-    @PreAuthorize("hasRole('ADMIN')")
-    public Iterable<Typevoiture> getTypevoiture() { return typevoitureService.getAllTypevoiture(); }
+    @PreAuthorize("hasRole('USER') || hasRole('ADMIN')")
+    public Iterable<Typevoiture> getTypevoiture() {
+
+        return typevoitureService.getAllTypevoiture();
+    }
 
 
     @DeleteMapping("/{idtypevoiture}")

@@ -3,6 +3,7 @@ package voiture.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ui.Model;
@@ -10,7 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import voiture.model.Marque;
 import voiture.model.Modele;
 import voiture.service.ModeleService;
+import voiture.tools.Util;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -57,6 +61,27 @@ public class ModeleController {
             return new ResponseEntity<>(updateEntity, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("getModelByMarque")
+    @PreAuthorize("hasRole('USER') || hasRole('ADMIN')")
+    public ResponseEntity<Map<String , Object>> getModelByMarque(@RequestParam int id_marque) {
+        Optional<List< Modele>> optionalModeles = modeleService.getModelByMarque(id_marque);
+        List<Modele> modeleList = optionalModeles.get();
+        Map<String , Object> response = Util.getDefaultResponse();
+        if(modeleList.isEmpty() == false) {
+            response.put("data" , optionalModeles.get());
+            return new ResponseEntity<Map<String , Object>>(
+                    response,
+                    HttpStatusCode.valueOf(200)
+            );
+        } else {
+            response.put("error" , "Aucun resultat");
+            return new ResponseEntity<Map<String , Object>>(
+                    response,
+                    HttpStatusCode.valueOf(500)
+            );
         }
     }
 }
