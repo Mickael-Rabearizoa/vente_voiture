@@ -1,5 +1,3 @@
-
-
 CREATE VIEW V_AnnonceUtilisateur AS
 SELECT
     au.Id_Annonceutilisateur,
@@ -205,13 +203,4 @@ ORDER BY
 create or replace view bestvendeurdto as
 select Idutilisateur,nom_utilisateur,prenom_utilisateur,telephone,count(id_annonceutilisateur) as nbvente,sum(commission) as chiffre_daffaire
 from V_HistoriqueAchat
-group by Idutilisateur,nom_utilisateur,prenom_utilisateur,telephone order by count(id_annonceutilisateur) desc limit 3
-
-
-select * from V_AnnonceUtilisateur where status=1  and ( id_modele is not null or id_modele=?) and (Id_Couleur is not null or Id_Couleur=?) and (anne is not not null or annne = ?) and (id_typevoiture is not null or id_typevoiture=?) and (id_marque is not null or id_marque=?) and ((prix is not null) or prix <? and prix >? )
-
-
-
-status=0 annonce tsy valide
-      =1 annonce valide fa tsy nisy nividy
-      =2 valide nisy nividy
+group by Idutilisateur,nom_utilisateur,prenom_utilisateur,telephone order by count(id_annonceutilisateur) desc limit 3;

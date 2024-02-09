@@ -45,7 +45,7 @@ public class SecurityConfig {
       )
       .authorizeHttpRequests(req -> {
         req
-          .requestMatchers("/AnnonceUtilisateur/**").authenticated()
+                /*.requestMatchers("/AnnonceUtilisateur/**").authenticated()
                 .requestMatchers("/annonceValide/**").authenticated()
                 .requestMatchers("/carburant/**").authenticated()
                 .requestMatchers("/commission/**").authenticated()
@@ -55,9 +55,8 @@ public class SecurityConfig {
                 .requestMatchers("/transmission/**").authenticated()
                 .requestMatchers("/typevoitures/**").authenticated()
                 .requestMatchers("/V_AnnonceFavorisUtilisateur/**").authenticated()
-                .requestMatchers("/V_AnnonceUtilisateur/**").authenticated()
                 .requestMatchers("/getHistoriqueAchat/**").authenticated()
-                .requestMatchers("/V_Marqueplusvendu/**").authenticated()
+                .requestMatchers("/V_Marqueplusvendu/**").authenticated()*/
           //.authenticated() // Autorise toutes les requêtes correspondant à "/auth/**"
           //.requestMatchers("/login/**")
           //.permitAll() // Autorise toutes les requêtes correspondant à "/auth/**"

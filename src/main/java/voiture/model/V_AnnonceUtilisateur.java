@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name = "V_AnnonceUtilisateur")
 public class V_AnnonceUtilisateur {
     @Id
-    @Column(name="Id_Annonceutilisateur")
+    @Column(name="id_annonceutilisateur")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer Id_Annonceutilisateur;
 
@@ -61,8 +61,8 @@ public class V_AnnonceUtilisateur {
     @Column(name="marque")
     public String marque;
 
-    @OneToMany(mappedBy = "V_AnnonceUtilisateur", cascade = CascadeType.ALL)
-    private List<Photo> photoList;
+    /* @OneToMany(mappedBy = "V_AnnonceUtilisateur", cascade = CascadeType.ALL)
+    private List<Photo> photoList; */
 
     public String getMarque() {
         return marque;
