@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 import voiture.model.Marque;
 import voiture.model.Utilisateur;
+import voiture.model.V_AnnonceUtilisateur;
 import voiture.model.V_Marqueplusvendu;
 import voiture.repository.*;
 import voiture.service.ExceptionService;
@@ -50,6 +51,9 @@ public class BackOfficeController {
 
     @Autowired
     ExceptionService exceptionService;
+
+    @Autowired
+    PhotoRepository photoRepository;
 
     @PostMapping("/login")
     public ModelAndView pageStatistique(Model model , HttpServletRequest request , HttpSession session){
@@ -103,7 +107,11 @@ public class BackOfficeController {
                 Utilisateur utilisateur = (Utilisateur) session.getAttribute("user");
                 annonceutilisateurRepository.updateStatusAnnonce(idAnnonce);
                 model.addAttribute("pageName" , "Validation");
-                model.addAttribute("listAnnonce" , v_annonceUtilisateurService.getAnnonceAValide());
+                List<V_AnnonceUtilisateur> listAnnonce = v_annonceUtilisateurService.getAnnonceAValide();
+                for (V_AnnonceUtilisateur annonce : listAnnonce) {
+                    annonce.setPhotoList(photoRepository.findPhotosById_Annonceutilisateur(annonce.getId_Annonceutilisateur()));
+                }
+                model.addAttribute("listAnnonce" , listAnnonce);
                 ModelAndView modelAndView = new ModelAndView("validation_annonce");
                 return modelAndView;
             } else {
