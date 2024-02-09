@@ -64,7 +64,7 @@ public class ModeleController {
         }
     }
 
-    @PostMapping("getModelByMarque")
+    @GetMapping("getModelByMarque")
     @PreAuthorize("hasRole('USER') || hasRole('ADMIN')")
     public ResponseEntity<Map<String , Object>> getModelByMarque(@RequestParam int id_marque) {
         Optional<List< Modele>> optionalModeles = modeleService.getModelByMarque(id_marque);

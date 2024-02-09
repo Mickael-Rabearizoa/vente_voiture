@@ -2,6 +2,7 @@ package voiture.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import voiture.model.Photo;
 import voiture.repository.PhotoRepository;
@@ -16,8 +17,7 @@ public class PhotoService {
     public PhotoService(PhotoRepository photoRepository) {
         this.photoRepository = photoRepository;
     }
-
-    public void insertPhoto(String file, Integer maxid) throws IOException {
+    public void insertPhoto(String file, Integer maxid) {
         Photo photo= new Photo();
         photo.setPhoto(file);
         photo.setId_Annonceutilisateur(maxid);

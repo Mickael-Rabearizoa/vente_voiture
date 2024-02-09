@@ -52,19 +52,16 @@ public class AnnonceUtilisateurController {
     }
 
     @PostMapping("/AddAnnonceutilisateur")
-    @PreAuthorize("hasRole('USER')")
-    @Transactional
+    @PreAuthorize("hasRole('USER') || hasRole('ADMIN')")
     public ResponseEntity<Annonceutilisateur> AddAnnonceutilisateur(@RequestBody Annonceutilisateur annonceutilisateur) throws IOException {
         Annonceutilisateur  createdAnnonceUtilisateur = annonceutilisateurService.AddAnnonceutilisateur(annonceutilisateur);
         int idannonce=createdAnnonceUtilisateur.getId_Annonceutilisateur();
-        System.out.println(""+createdAnnonceUtilisateur.getImg().get(0));
         String url = "https://api.imgbb.com/1/upload?key=e916f661d8f223ded411368ccba16723";
         RestTemplate restTemplate = new RestTemplate();
 
         for (int i = 0; i <createdAnnonceUtilisateur.getImg().size() ; i++) {
 
-            //mbola asina split ,
-            String image=createdAnnonceUtilisateur.getImg().get(i);
+            String image = createdAnnonceUtilisateur.getImg().get(i);
 
             if (image.contains(",")) {
                 // Diviser la chaîne en utilisant la virgule comme séparateur
@@ -102,8 +99,9 @@ public class AnnonceUtilisateurController {
             // Obtenez la valeur de "url"
             String nomurl = imageObject.getString("url");
 
-            photoService.insertPhoto(nomurl,idannonce);
+            photoService.insertPhoto(nomurl, idannonce);
         }
+
         return new ResponseEntity<>(createdAnnonceUtilisateur, HttpStatus.CREATED);
     }
 
