@@ -29,7 +29,7 @@ public class PhotoController {
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Map<String, Object>> getPhoto(Integer Id_Annonceutilisateur) {
         Map<String,Object> response = Util.getDefaultResponse();
-        response.put("data",photoRepository.getOnePhotoById(Id_Annonceutilisateur));
+        response.put("data",photoRepository.findPhotosById_Annonceutilisateur(Id_Annonceutilisateur));
         response.replace("error","tena misy erreur");
         return new ResponseEntity<Map<String, Object>>(
                 response,
