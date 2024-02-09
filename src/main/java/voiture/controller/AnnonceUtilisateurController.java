@@ -55,6 +55,22 @@ public class AnnonceUtilisateurController {
     @PreAuthorize("hasRole('USER') || hasRole('ADMIN')")
     public ResponseEntity<Annonceutilisateur> AddAnnonceutilisateur(@RequestBody Annonceutilisateur annonceutilisateur) throws IOException {
         Annonceutilisateur  createdAnnonceUtilisateur = annonceutilisateurService.AddAnnonceutilisateur(annonceutilisateur);
+        System.out.println(annonceutilisateur.getMatricule());
+        System.out.println(annonceutilisateur.getDateannonce());
+        System.out.println(annonceutilisateur.getKilometrage());
+        System.out.println(annonceutilisateur.getAnnee());
+        System.out.println(annonceutilisateur.getMoteur());
+        System.out.println(annonceutilisateur.getDescription());
+        System.out.println(annonceutilisateur.getClimatisation());
+        System.out.println(annonceutilisateur.getPrix());
+        System.out.println(annonceutilisateur.getId_Region());
+        System.out.println(annonceutilisateur.getId_Volant());
+        System.out.println(annonceutilisateur.getId_Couleur());
+        System.out.println(annonceutilisateur.getId_Carburant());
+        System.out.println(annonceutilisateur.getId_Transmission());
+        System.out.println(annonceutilisateur.getId_Modele());
+        System.out.println(annonceutilisateur.getIdutilisateur());
+        System.out.println(annonceutilisateur.getStatus());
         int idannonce=createdAnnonceUtilisateur.getId_Annonceutilisateur();
         String url = "https://api.imgbb.com/1/upload?key=e916f661d8f223ded411368ccba16723";
         RestTemplate restTemplate = new RestTemplate();

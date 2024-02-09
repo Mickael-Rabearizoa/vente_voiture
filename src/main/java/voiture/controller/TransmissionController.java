@@ -32,7 +32,7 @@ public class TransmissionController {
     }
 
     @GetMapping()
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') || hasRole('USER')")
     public ResponseEntity<Map<String, Object>> getTransmission() {
         Map<String,Object> response = Util.getDefaultResponse();
         response.put("data",transmissionService.getAllTransmission());
